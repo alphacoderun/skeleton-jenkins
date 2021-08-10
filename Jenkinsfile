@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo hello ${Region} ${Version}'
+                sh 'echo hello ${Region} ${Version} ${Username} ${Userpassword}'
             }
         }
     }
