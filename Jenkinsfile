@@ -5,7 +5,9 @@ pipeline {
         stage('verify') {
               steps {
                 timeout(1) {
-                    echo "deploy to ${Region}"
+                    echo "###################################"
+                    echo "Target Region ${Region}"
+                    echo "###################################"
                     input message: 'press proceed', ok: 'Ok', submitterParameter: 'ACK'
                 }
               }  
