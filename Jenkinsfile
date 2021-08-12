@@ -6,7 +6,7 @@ pipeline {
             // steps {
                 // timeout(1) {
                 input {
-                    message: 'Did you want to continue or not', 
+                    message: 'Did you want to continue or not' 
                     ok: 'testok'
                 }
                 // }
