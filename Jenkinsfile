@@ -8,7 +8,14 @@ pipeline {
                     echo "###################################"
                     echo "Target Region ${Region}"
                     echo "###################################"
-                    input message: 'press proceed', ok: 'Ok', submitterParameter: 'ACK'
+                    // input message: 'press proceed', ok: 'do itOk', submitterParameter: 'ACK'
+                    input {
+                        message 'press to deploy?',
+                        ok 'do it',
+                        parameters {
+                            string(name: 'Region', defaultValue: 'PROD', description: 'Target deployment environment')
+                        }
+                    }
                 }
               }  
         }
