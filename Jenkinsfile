@@ -6,10 +6,8 @@ pipeline {
         stage('verify') {
             steps {
                 timeout(2) {
-                    input message: 'press proceed', ok: 'Ok', submitterParameter: 'ACK'
+                    input message: 'okay to deploy to ${Region}', ok: 'Ok'
                 }
-                sh 'echo value of ack [${ACK}]'
-                
             }
         }
         stage('Build') {
