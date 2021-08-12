@@ -10,6 +10,9 @@ pipeline {
                 // sh 'echo value of ack [${ACK}]'
                 
             // }
+            steps {
+                echo 'going ahead with the change'
+            }
         }
         stage('Build') {
             steps {
