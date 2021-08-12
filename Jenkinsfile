@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('verify') {
             steps {
-                timeout(2) {
+                timeout(1) {
                     input message: 'okay to deploy to ${Region}', ok: 'Ok'
                 }
             }
