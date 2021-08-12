@@ -3,26 +3,13 @@ pipeline {
 
     // triggers { pollSCM('* * * * *') }
     stages {
-        
-        stage("Verify Proceed") {
+        stage('verify') {
             steps {
-               option { timeout(time:2, unit:"MINUTES") }
-               input {
-                   message "Do you with to proceed?"
-                   parameters {
-                       string(name: "ACK", defaultValue: "y", "type y to proceed to production")
-                   }
-               } 
-            }
-            steps {
-                script {
-                    if (ACK == 'y') {
-                        echo "Proceeding to deploy to region [${Region}]"
-
-                    } else {
-                        error("Deployment aborted!")
-                    }
+                timeout(2) {
+                    input message: 'press proceed', ok: 'Ok', submitterParameter: 'ACK'
                 }
+                sh 'echo value of ack [${ACK}]'
+                
             }
         }
         stage('Build') {
