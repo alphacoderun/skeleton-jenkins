@@ -1,13 +1,14 @@
 pipeline {
     agent any
 
-    // triggers { pollSCM('* * * * *') }
     stages {
         stage('verify') {
             steps {
                 timeout(1) {
-                    input message: 'okay to deploy to ${Region}', ok: 'Ok'
+                    input message: 'press proceed', ok: 'Ok', submitterParameter: 'ACK'
                 }
+                // sh 'echo value of ack [${ACK}]'
+                
             }
         }
         stage('Build') {
