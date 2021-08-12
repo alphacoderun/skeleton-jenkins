@@ -3,19 +3,12 @@ pipeline {
 
     stages {
         stage('verify') {
-            // steps {
-                // timeout(1) {
-                input {
-                    message: 'Did you want to continue or not' 
-                    ok: 'testok'
-                }
-                // }
-                // sh 'echo value of ack [${ACK}]'
-                
-            // }
-            steps {
-                echo 'going ahead with the change'
-            }
+            def doesJavaRock = input(message: 'Do you like Java?', ok: 'Yes', 
+                        parameters: [booleanParam(defaultValue: true, 
+                        description: 'If you like Java, just push the button',name: 'Yes?')])
+
+            echo "Java rocks?:" + doesJavaRock
+            
         }
         stage('Build') {
             steps {
