@@ -4,19 +4,9 @@ pipeline {
     stages {
         stage('verify') {
               steps {
-                timeout(1) {
-                    echo "###################################"
-                    echo "Target Region ${Region}"
-                    echo "###################################"
-                    // input message: 'press proceed', ok: 'do itOk', submitterParameter: 'ACK'
-                    input {
-                        message 'press to deploy?'
-                        ok 'do it'
-                        parameters {
-                            string(name: 'Region', defaultValue: 'PROD', description: 'Target deployment environment')
-                        }
-                    }
-                }
+                  script {
+                      println "Hello world from script!!!"
+                  }
               }  
         }
         stage('Build') {
