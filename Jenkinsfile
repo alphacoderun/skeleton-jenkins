@@ -15,18 +15,18 @@ pipeline {
                       println "Deployment Window start time: " + props.startHour + ":" props.startMinute
                       println "Deployment Window stop time: " + props.stopHour + ":" props.stopMinute
                       
-                      println "Current Time: " + currentHour + ":" + currentMinute
-                      def inBuildWindow = false
-                      if (currentHour >= props.startHour && currentMinute >= props.startMinute) {
-                        if (currentHour <= props.stopHour && currentMinute <= props.stopMinute) {
-                            inBuildWindow = true
-                        }
-                      }
-                      if (!inBuildWindow) {
-                        error("Aborting the build as current time not within deployment window")
-                      } else {
-                        println("The build is withing the deployment window")
-                      }
+                    //   println "Current Time: " + currentHour + ":" + currentMinute
+                    //   def inBuildWindow = false
+                    //   if (currentHour >= props.startHour && currentMinute >= props.startMinute) {
+                    //     if (currentHour <= props.stopHour && currentMinute <= props.stopMinute) {
+                    //         inBuildWindow = true
+                    //     }
+                    //   }
+                    //   if (!inBuildWindow) {
+                    //     error("Aborting the build as current time not within deployment window")
+                    //   } else {
+                    //     println("The build is withing the deployment window")
+                    //   }
 
                   }
               }  
