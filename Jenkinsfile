@@ -15,7 +15,7 @@ pipeline {
                       
                       cmpHour = 12
                       cmpMinute = 40
-
+                      println "Current Time: " + hour + ":" + minute
                       if (hour <= cmpHour && minute <= cmpMinute) {
                         println "less than " + cmpHour + ":" + cmpMinute
                       } else {
