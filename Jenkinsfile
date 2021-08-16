@@ -13,7 +13,7 @@ pipeline {
                     //   println "Now: " + now
                     //   println "Debug Current time: " + hour + ":" + minute
                       
-                      cmpHour = 13
+                      cmpHour = 12
                       cmpMinute = 40
                       println "Current Time: " + hour + ":" + minute
                       if (hour <= cmpHour && minute <= cmpMinute) {
