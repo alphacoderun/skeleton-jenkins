@@ -20,6 +20,7 @@ pipeline {
                         println "less than " + cmpHour + ":" + cmpMinute
                       } else {
                         println "greater than " + cmpHour + ":" + cmpMinute
+                        throw new Exception("Aborting the build")
                       }
 
                   }
