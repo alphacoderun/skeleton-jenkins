@@ -8,10 +8,10 @@ pipeline {
                       println "Hello world from script!!!"
 
                       def now = Calendar.getInstance();
-                      def hour = now.getAt(Calendar.HOUR)
+                      def hour = now.getAt(Calendar.HOUR_OF_DAY)
                       def minute = now.getAt(Calendar.MINUTE)
-
-                      println "Current time: " + hour + ":" + minute
+                      println "Now: " + now
+                      println "Debug Current time: " + hour + ":" + minute
                   }
               }  
         }
