@@ -17,7 +17,7 @@ inBuildWindow = false
 println 'isBuildWindow before: ' + inBuildWindow
 
 startTime = 1450
-stopTime = 1453
+stopTime = 1553
 println 'Start Time: ' + startTime
 println 'Stop Time: ' + stopTime
 currentTime = currentHour * 100 + currentMinute
