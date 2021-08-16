@@ -8,19 +8,22 @@ pipeline {
                       println "Hello world from script!!!"
 
                       def now = Calendar.getInstance();
-                      def hour = now.getAt(Calendar.HOUR_OF_DAY)
-                      def minute = now.getAt(Calendar.MINUTE)
-                    //   println "Now: " + now
-                    //   println "Debug Current time: " + hour + ":" + minute
+                      def currentHour = now.getAt(Calendar.HOUR_OF_DAY)
+                      def currentMinute = now.getAt(Calendar.MINUTE)
                       
-                      cmpHour = 12
-                      cmpMinute = 40
-                      println "Current Time: " + hour + ":" + minute
-                      if (hour <= cmpHour && minute <= cmpMinute) {
-                        println "less than " + cmpHour + ":" + cmpMinute
-                      } else {
-                        println "greater than " + cmpHour + ":" + cmpMinute
-                        error("Aborting the build as not in correct time")
+                      def props = readProperties file: 'test.properties'
+                      println "Deployment Window start time: " + props.startHour + ":" props.startMinute
+                      println "Deployment Window stop time: " + props.stopHour + ":" props.stopMinute
+                      
+                      println "Current Time: " + currentHour + ":" + currentMinute
+                      def inBuildWindow = false
+                      if (currentHour >= props.startHour && currentMinute >= props.startMinute) {
+                        if (currentHour <= props.stopHour) && currentMinute <= props.stopMinute) {
+                            inBuildWindow = true
+                        }
+                      }
+                      if !inBuildWindow {
+                        error("Aborting the build as current time not within deployment window")
                       }
 
                   }
