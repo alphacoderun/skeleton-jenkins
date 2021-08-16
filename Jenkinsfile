@@ -16,7 +16,7 @@ inBuildWindow = false
 
 println 'isBuildWindow before: ' + inBuildWindow
 
-startTime = 1450
+startTime = 1550
 stopTime = 1553
 println 'Start Time: ' + startTime
 println 'Stop Time: ' + stopTime
@@ -31,7 +31,7 @@ if (currentTime >= startTime) {
 }
 
 if (!inBuildWindow) {
-    error('Aborting the build as current time not within deployment window')
+    error('Aborting the build as current time outside deployment window')
 } else {
     println 'The build is withing the deployment window'
 }
