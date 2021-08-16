@@ -22,8 +22,10 @@ pipeline {
                             inBuildWindow = true
                         }
                       }
-                      if !inBuildWindow {
+                      if (!inBuildWindow) {
                         error("Aborting the build as current time not within deployment window")
+                      } else {
+                        println("The build is withing the deployment window")
                       }
 
                   }
