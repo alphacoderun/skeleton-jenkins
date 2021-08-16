@@ -10,8 +10,18 @@ pipeline {
                       def now = Calendar.getInstance();
                       def hour = now.getAt(Calendar.HOUR_OF_DAY)
                       def minute = now.getAt(Calendar.MINUTE)
-                      println "Now: " + now
-                      println "Debug Current time: " + hour + ":" + minute
+                    //   println "Now: " + now
+                    //   println "Debug Current time: " + hour + ":" + minute
+                      
+                      cmpHour = 12
+                      cmpMinute = 40
+
+                      if (hour <= cmpHour && minute <= cmpMinute) {
+                        println "less than " + cmpHour + ":" + cmpMinute
+                      } else {
+                        println "greater than " + cmpHour + ":" + cmpMinute
+                      }
+
                   }
               }  
         }
