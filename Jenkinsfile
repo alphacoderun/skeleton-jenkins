@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo build hello ${Region} ${Version} ${Username} ${Userpassword}'
+                sh 'echo build hello ${Region} ${Version} ${Username}'
             }
         }
     }
