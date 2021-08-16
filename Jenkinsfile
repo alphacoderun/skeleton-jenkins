@@ -18,7 +18,7 @@ pipeline {
                       println "Current Time: " + currentHour + ":" + currentMinute
                       def inBuildWindow = false
                       if (currentHour >= props.startHour && currentMinute >= props.startMinute) {
-                        if (currentHour <= props.stopHour) && currentMinute <= props.stopMinute) {
+                        if (currentHour <= props.stopHour && currentMinute <= props.stopMinute) {
                             inBuildWindow = true
                         }
                       }
