@@ -10,8 +10,14 @@ pipeline {
                       def now = Calendar.getInstance();
                       def currentHour = now.getAt(Calendar.HOUR_OF_DAY)
                       def currentMinute = now.getAt(Calendar.MINUTE)
+                                  
+                    //   def props = readProperties file: 'test.properties'
+                       def prop = new ConfigSlurper().parse(new File('test.properties').toURL())
+
+                    //   def prop = new Properties()
+                    //   prop.load(new File("test.properties"))
                       
-                      def props = readProperties file: 'test.properties'
+
                       println "Deployment Window start time: " + props.startHour + ":" props.startMinute
                       println "Deployment Window stop time: " + props.stopHour + ":" props.stopMinute
                       
