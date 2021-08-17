@@ -13,6 +13,12 @@ pipeline {
                         beginWindow = params['beginWindow']
                         endWindow = params['endWindow']
                         inDeployWindow = false
+
+                        println "#####before########"
+                        println  beginWindow
+                        println  endWindow
+                        println "###################"
+
                         begintHour = Integer.parseInt(beginWindow.split(":")[0])
                         beginMinute = Integer.parseInt(endWindow.split(":")[1])
                         beginTime = begintHour * 100 + beginMinute
