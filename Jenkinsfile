@@ -5,39 +5,28 @@ pipeline {
         stage('verify') {
               steps {
                   script {
-println "Hello world from script!!!"
+                        now = Calendar.getInstance()
+                        currentHour = now.get(Calendar.HOUR_OF_DAY)
+                        currentMinute = now.get(Calendar.MINUTE)
+                        currentTime = currentHour * 100 + currentMinute
 
-now = Calendar.getInstance()
-currentHour = now.getAt(Calendar.HOUR_OF_DAY)
-currentMinute = now.getAt(Calendar.MINUTE)
+                        beginWindow = params['beginWindow']
+                        endWindow = params['endWindow']
+                        inDeployWindow = false
+                        begintHour = Integer.parseInt(beginWindow.split(":")[0])
+                        beginMinute = Integer.parseInt(endWindow.split(":")[1])
+                        beginTime = begintHour * 100 + beginMinute
 
-println 'Current Time: ' + currentHour + ':' + currentMinute
-inBuildWindow = false
+                        endHour = Integer.parseInt(endWindow.split(":")[0])
+                        endMinute = Integer.parseInt(endWindow.split(":")[1])
+                        endtime = endHour * 100 + endMinute
 
-println 'isBuildWindow before: ' + inBuildWindow
-
-startTime = 1550
-stopTime = 1553
-println 'Start Time: ' + startTime
-println 'Stop Time: ' + stopTime
-currentTime = currentHour * 100 + currentMinute
-
-println 'Current time concat: ' + currentTime
-
-if (currentTime >= startTime) {
-    if (currentTime <= stopTime) {
-        inBuildWindow = true
-    }
-}
-
-if (!inBuildWindow) {
-    error('Aborting the build as current time outside deployment window')
-} else {
-    println 'The build is withing the deployment window'
-}
-               
+                        println "Begin Time:   " + beginTime
+                        println "End Time:     " + endtime
+                        println "Current Time: " + currentTime
                   }
-              }  
+
+              }
         }
         stage('Build') {
             steps {
