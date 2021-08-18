@@ -10,17 +10,17 @@ pipeline {
                         parameters([
                             choice(
                                 choices: ['ONE', 'TWO'], 
-                                name: 'PARAMETER_01'
+                                name: 'Region'
                                 description: 'Select the server you want'
                             ),
                             booleanParam(
                                 defaultValue: false, 
                                 description: 'Click to overide', 
-                                name: 'BOOLEAN_VALUE'
+                                name: 'Override'
                             ),
                             string(
-                                defaultValue: 'scriptcrunch', 
-                                name: 'STRING-PARAMETER',
+                                defaultValue: 'dummyV3', 
+                                name: 'Version',
                                 description: 'Enter a test text here', 
                                 trim: true
                             )
@@ -61,7 +61,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo building..... hello ${Region} ${Version} ${Username}'
+                sh 'echo doing a dummy build.... hello ${Region} ${Version} ${Override}'
             }
         }
     }
