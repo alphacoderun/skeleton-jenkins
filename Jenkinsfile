@@ -52,14 +52,15 @@ pipeline {
                         // println "Begin Time:   " + beginTime
                         // println "End Time:     " + endtime
                         // println "Current Time: " + currentTime
+
+                        env.Version_Number = params['Version Number']
                   }
 
               }
         }
         stage('Build') {
             steps {
-                cmd = "echo doing a dummy build.... hello " + params['Region'] + " " + params['Version Number'] + " " + params['Override'] 
-                sh cmd
+                sh 'echo doing a dummy build.... hello ${Region} ${Version_Number} ${Override}'
             }
         }
     }
