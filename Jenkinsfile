@@ -21,7 +21,7 @@ pipeline {
                             string(
                                 defaultValue: 'dummyV3', 
                                 name: 'Version',
-                                description: 'Enter a test text here', 
+                                description: 'Enter a <b style="color: red">test<b> text here', 
                                 trim: true
                             )
                         ])
