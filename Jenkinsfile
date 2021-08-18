@@ -20,7 +20,7 @@ pipeline {
                             ),
                             string(
                                 defaultValue: 'dummyV3', 
-                                name: 'Version',
+                                name: 'Version Number',
                                 description: 'Enter a <div style="border:4px solid Tomato;">test</div><br/>ptext here', 
                                 trim: true
                             )
@@ -58,7 +58,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo doing a dummy build.... hello ${Region} ${Version} ${Override}'
+                sh 'echo doing a dummy build.... hello ${Region} ${Version Number} ${Override}'
             }
         }
     }
