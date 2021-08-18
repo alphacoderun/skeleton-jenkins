@@ -10,7 +10,7 @@ pipeline {
                         parameters([
                             choice(
                                 choices: ['ONE', 'TWO'], 
-                                name: 'Region'
+                                name: 'Region',
                                 description: 'Select the server you want'
                             ),
                             booleanParam(
