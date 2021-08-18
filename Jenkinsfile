@@ -58,7 +58,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo doing a dummy build.... hello ${Region} ${Version Number} ${Override}'
+                cmd = "echo doing a dummy build.... hello " + params['Region'] + " " + params['Version Number'] + " " + params['Override'] 
+                sh cmd
             }
         }
     }
