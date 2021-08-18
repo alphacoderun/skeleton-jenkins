@@ -21,15 +21,12 @@ pipeline {
                             string(
                                 defaultValue: 'dummyV3', 
                                 name: 'Version',
-                                description: 'Enter a <div style="border:4px solid Tomato;">test</div><br/>text here', 
+                                description: 'Enter a <div style="border:4px solid Tomato;">test</div><br/>ptext here', 
                                 trim: true
                             )
                         ])
                     ])
 
-
-
-                      
                         // now = Calendar.getInstance()
                         // currentHour = now.get(Calendar.HOUR_OF_DAY)
                         // currentMinute = now.get(Calendar.MINUTE)
