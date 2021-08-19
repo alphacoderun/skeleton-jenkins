@@ -68,7 +68,7 @@ pipeline {
     post {
         always {
             script {
-                curlCmd = env.BUILD_URL + "/consoleText"
+                curlCmd = "curl " + env.BUILD_URL + "/consoleText"
                 debugLog = sh(script: curlCmd, returnStdout: true).trim()
                 txt = "##############################\n" + debugLog + "\n##############################"
                 println txt
